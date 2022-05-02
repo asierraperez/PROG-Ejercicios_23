@@ -16,6 +16,7 @@
         } 
 
         function mostrar(){
+            echo "Se pulsó el botón de envío con la información:<br>";
             echo "Nombre: $this->nombre<br>";
             echo "Apellidos: $this->apellidos<br>";
             echo "Edad: $this->edad<br>";
@@ -26,7 +27,10 @@
 
     $alvaro=new Alumno($_POST["nombre"],$_POST["apellidos"],$_POST["edad"],$_POST["nota"]);
 
-    $alvaro->mostrar();
+    //$alvaro->mostrar();
+    $estudiantes=array($alvaro,0,0);
+    $estudiantes[0]->mostrar();
+
     ?>
 </body>
 </html>
