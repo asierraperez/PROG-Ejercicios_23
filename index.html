@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -6,15 +7,20 @@
 </head>
 
 <body>
-    <form id="formulario" action="" method="POST">
+    <form id="formulario" action="main.php" method="POST">
         Nombre: <input id="nombre" type="text" name="nombre"><br>
         Apellidos: <input id="apellidos" type="text" name="apellidos"><br>
         Edad: <input id="edad" type="text" name="edad"><br>
         Nota: <input id="nota" type="text" name="nota"><br>
+        <input id="submit" type="submit" disabled>
     </form>
 </body>
-<script src="./scripts/comprobaciones.js"></script>
-<script src="./scripts/eventos.js"></script>
-<script src="./scripts/main.js"></script>
+<footer>
+    <script src="./scripts/submit.js"></script>
+    <script src="./scripts/comprobaciones.js"></script>
+    <script src="./scripts/eventos.js"></script>
+    <script src="./scripts/main.js"></script>
+</footer>
+
 
 </html>

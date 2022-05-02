@@ -1,35 +1,71 @@
-function eventoNombre(nombreHTML, valores) {
+function eventoNombre(nombreHTML, valores, btnSubmit) {
+    var isCampoOk
+    var isTextoOk
+    var isMaxCaracteresOk
     nombreHTML.addEventListener("keyup", (evt) => {
-        nombreHTML.value = compruebaTexto(nombreHTML.value, valores)
-        nombreHTML.value = maxCaracteres(nombreHTML.value, 25)
+        isTextoOk = compruebaTexto(nombreHTML, valores)
+        isMaxCaracteresOk = maxCaracteres(nombreHTML.value, 25)
+        isCampoOk = comprobar(isTextoOk, isMaxCaracteresOk)
+        btnSubmit.nombreOk(isCampoOk)
+
+
     })
 }
 
-function eventoApellidos(apellidosHTML, valores) {
+function eventoApellidos(apellidosHTML, valores, btnSubmit) {
+    var isCampoOk
+    var isTextoOk
+    var isMaxCaracteresOk
     apellidosHTML.addEventListener("keyup", (evt) => {
-        apellidosHTML.value = compruebaTexto(apellidosHTML.value, valores)
-        apellidosHTML.value = maxCaracteres(apellidosHTML.value, 50)
+        isTextoOk = compruebaTexto(apellidosHTML, valores)
+        isMaxCaracteresOk = maxCaracteres(apellidosHTML.value, 50)
+        isCampoOk = comprobar(isTextoOk, isMaxCaracteresOk)
+        btnSubmit.apellidoOk(isCampoOk)
+
+
     })
 }
 
-function eventoEdad(edadHTML, alfabeto) {
+function eventoEdad(edadHTML, alfabeto, btnSubmit) {
+    var isCampoOk
+    var isTextoOk
+    var isValorOK
     edadHTML.addEventListener("keyup", (evt) => {
-        edadHTML.value = compruebaTexto(edadHTML.value, alfabeto)
+        isTextoOk = compruebaTexto(edadHTML, alfabeto)
+        isCampoOk = comprobar(isTextoOk, isValorOK)
+        btnSubmit.edadOk(isCampoOk)
+
+
 
     })
     edadHTML.addEventListener("change", (evt) => {
 
-        edadHTML.value = maxValor(edadHTML.value, 10, 100)
+        isValorOK = maxValor(edadHTML, 10, 100)
+        isCampoOk = comprobar(isTextoOk, isValorOK)
+        btnSubmit.edadOk(isCampoOk)
+
     })
 }
 
-function eventoNota(notaHTML, alfabeto) {
+function eventoNota(notaHTML, alfabeto, btnSubmit) {
+    var isCampoOk
+    var isTextoOk
+    var isValorOK
+
     notaHTML.addEventListener("keyup", (evt) => {
-        notaHTML.value = compruebaTexto(notaHTML.value, alfabeto)
+        isTextoOk = compruebaTexto(notaHTML, alfabeto)
+        isCampoOk = comprobar(isTextoOk, isValorOK)
+        btnSubmit.notaOk(isCampoOk)
+
+
     })
 
     notaHTML.addEventListener("change", (evt) => {
 
-        notaHTML.value = maxValor(notaHTML.value, 0, 10)
+        isValorOK = maxValor(notaHTML, 0, 10)
+        isTextoOk = comprobar(isTextoOk, isValorOK)
+        btnSubmit.notaOk(isCampoOk)
+
+
     })
 }
