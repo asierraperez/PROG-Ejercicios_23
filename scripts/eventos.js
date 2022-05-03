@@ -80,8 +80,16 @@ function eventoSubmit(datos) {
             url: "main.php",
             type: "post",
             success: function (response) {
-                var respuesta = 1
-                console.log(respuesta)
+                try {
+
+                    var respuesta = JSON.parse(response)
+                    console.log(respuesta.resultado)
+
+
+                } catch (error) {
+                    console.log("Error")
+                }
+
             }
 
         })

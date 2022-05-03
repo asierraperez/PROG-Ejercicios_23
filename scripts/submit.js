@@ -7,6 +7,7 @@ class submit {
         this.isNotaOk = isNotaOk
         this.nombre
         this.datos = datos
+
     }
     nombreOk(isCampoOk) {
         this.isNombreOk = isCampoOk

@@ -1,5 +1,4 @@
-<html>
-<body>
+
     <?php
 
     class Alumno{
@@ -13,35 +12,39 @@
             $this->apellidos=$apellidos;
             $this->edad=$edad;
             $this->nota=$nota;
-            $this->resultado="OK"
+            $this->resultado="";
 
         } 
 
-        function mostrar(){
+        /*function mostrar(){
             echo "Se pulsó el botón de envío con la información:<br>";
             echo "Nombre: $this->nombre<br>";
             echo "Apellidos: $this->apellidos<br>";
             echo "Edad: $this->edad<br>";
             echo "Nota: $this->nota<br>";
+            echo "Operacion: $this->resultado<br>";*
 
-        }
+
+        }*/
 
         
     }
 
     $alvaro=new Alumno($_POST["nombre"],$_POST["apellidos"],$_POST["edad"],$_POST["nota"]);
     
-    //echo json_encode($alvaro);
     if ($alvaro){
-        $resultado="OK";
+        $alvaro->resultado="OK";
     } else{
-        $resultado="ERROR";
+        $alvaro->resultado="ERROR";
     }
-    echo $resultado;
-    $estudiantes=array($alvaro,0,0);
-    $estudiantes[0]->mostrar();
+    
+    echo json_encode($alvaro);
+    
+    
+
+    /*$estudiantes=array($alvaro,0,0);
+    $estudiantes[0]->mostrar();*/
     
 
     ?>
-</body>
-</html>
+
