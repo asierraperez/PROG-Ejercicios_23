@@ -1,9 +1,6 @@
 
 function main_() {
-    /*var nombre = document.getElementById("nombre")
-    var apellidos = document.getElementById("apellidos")
-    var edad = document.getElementById("edad")
-    var nota = document.getElementById("nota")*/
+
     const view = new View()
     const btnSubmit = new submit(view.submit, false, false, false, false, view)
 
@@ -15,5 +12,6 @@ function main_() {
     eventoApellidos(view.apellidos, numeros, btnSubmit)
     eventoEdad(view.edad, letras, btnSubmit)
     eventoNota(view.nota, letras, btnSubmit)
+    eventoSubmit(view)
 }
 main_()

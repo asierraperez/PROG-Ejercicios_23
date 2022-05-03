@@ -7,7 +7,6 @@ class submit {
         this.isNotaOk = isNotaOk
         this.nombre
         this.datos = datos
-        this.enviar(this.datos.nombre.value, this.datos.apellidos.value, this.datos.edad.value, this.datos.nota.value)
     }
     nombreOk(isCampoOk) {
         this.isNombreOk = isCampoOk
@@ -36,15 +35,7 @@ class submit {
             this.btn.disabled = true
         }
     }
-    enviar(Nombre, Apellido, Edad, Nota) {
-        this.btn.addEventListener("click", (evt) => {
-            alert("se pulsó el botón de envío con la información:\n" +
-                "Nombre " + Nombre + "\n" +
-                "Apellido " + Apellido + "\n" +
-                "Edad " + Edad + "\n" +
-                "Nota " + Nota + "\n")
-        })
-    }
+
 
 
 }

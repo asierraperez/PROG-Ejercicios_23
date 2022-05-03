@@ -7,6 +7,7 @@ function eventoNombre(nombreHTML, valores, btnSubmit) {
         isMaxCaracteresOk = maxCaracteres(nombreHTML.value, 25)
         isCampoOk = comprobar(isTextoOk, isMaxCaracteresOk)
         btnSubmit.nombreOk(isCampoOk)
+        localStorage.setItem("nombre", nombreHTML.value)
 
 
     })
@@ -21,6 +22,7 @@ function eventoApellidos(apellidosHTML, valores, btnSubmit) {
         isMaxCaracteresOk = maxCaracteres(apellidosHTML.value, 50)
         isCampoOk = comprobar(isTextoOk, isMaxCaracteresOk)
         btnSubmit.apellidoOk(isCampoOk)
+        localStorage.setItem("apellidos", apellidosHTML.value)
 
 
     })
@@ -37,6 +39,7 @@ function eventoEdad(edadHTML, alfabeto, btnSubmit) {
         isTextoOk = compruebaTexto(edadHTML, alfabeto)
         isCampoOk = comprobar(isTextoOk, isValorOK)
         btnSubmit.edadOk(isCampoOk)
+        localStorage.setItem("edad", edadHTML.value)
 
     })
 }
@@ -53,8 +56,35 @@ function eventoNota(notaHTML, alfabeto, btnSubmit) {
         isTextoOk = compruebaTexto(notaHTML, alfabeto)
         isCampoOk = comprobar(isTextoOk, isValorOK)
         btnSubmit.notaOk(isCampoOk)
+        localStorage.setItem("nota", notaHTML.value)
 
 
     })
 }
 
+function eventoSubmit(datos) {
+    datos.submit.addEventListener("click", (evt) => {
+
+        alert("se pulsó el botón de envío con la información:\n" +
+            "Nombre " + datos.nombre.value + "\n" +
+            "Apellido " + datos.apellidos.value + "\n" +
+            "Edad " + datos.edad.value + "\n" +
+            "Nota " + datos.nota.value + "\n")
+        $.ajax({
+            data: {
+                "nombre": datos.nombre.value,
+                "apellidos": datos.apellidos.value,
+                "edad": datos.edad.value,
+                "nota": datos.nota.value
+            },
+            url: "main.php",
+            type: "post",
+            success: function (response) {
+                var respuesta = 1
+                console.log(respuesta)
+            }
+
+        })
+
+    })
+}

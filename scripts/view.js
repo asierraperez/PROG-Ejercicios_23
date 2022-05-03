@@ -5,5 +5,6 @@ class View {
         this.edad = document.getElementById("edad")
         this.nota = document.getElementById("nota")
         this.submit = document.getElementById("submit")
+
     }
 }

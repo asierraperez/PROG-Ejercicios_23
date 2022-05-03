@@ -1,6 +1,7 @@
 <html>
 <body>
     <?php
+
     class Alumno{
         public $nombre;
         public $apellidos;
@@ -12,6 +13,7 @@
             $this->apellidos=$apellidos;
             $this->edad=$edad;
             $this->nota=$nota;
+            $this->resultado="OK"
 
         } 
 
@@ -23,13 +25,22 @@
             echo "Nota: $this->nota<br>";
 
         }
+
+        
     }
 
     $alvaro=new Alumno($_POST["nombre"],$_POST["apellidos"],$_POST["edad"],$_POST["nota"]);
-
-    //$alvaro->mostrar();
+    
+    //echo json_encode($alvaro);
+    if ($alvaro){
+        $resultado="OK";
+    } else{
+        $resultado="ERROR";
+    }
+    echo $resultado;
     $estudiantes=array($alvaro,0,0);
     $estudiantes[0]->mostrar();
+    
 
     ?>
 </body>
