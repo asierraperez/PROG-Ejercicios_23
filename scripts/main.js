@@ -13,5 +13,6 @@ function main_() {
     eventoEdad(view.edad, letras, btnSubmit)
     eventoNota(view.nota, letras, btnSubmit)
     eventoSubmit(view)
+    eventoRecuperar(view.recuperar)
 }
 main_()

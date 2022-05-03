@@ -81,9 +81,12 @@ function eventoSubmit(datos) {
             type: "post",
             success: function (response) {
                 try {
-
+                    //console.log(response)
+                    $("#respuesta").html(response);
                     var respuesta = JSON.parse(response)
-                    console.log(respuesta.resultado)
+                    if (respuesta) {
+                        console.log("OK")
+                    }
 
 
                 } catch (error) {
@@ -96,3 +99,22 @@ function eventoSubmit(datos) {
 
     })
 }
+
+/*function eventoRecuperar(botonRecuperar) {
+    recuperar = document.getElementById("recuperar")
+    recuperar.addEventListener("click", (evt) => {
+        var nombre = prompt("Introduce el nombre del alumpo a buscar");
+        nombre = nombre.toLowerCase()
+        $.ajax({
+            data: { "nombreBuscar": nombre },
+            url: 'main.php',
+            type: 'post',
+            success: function (response) {
+                console.log(response)
+                $("#respuesta").html(response);
+            }
+        });
+
+
+    })
+}*/

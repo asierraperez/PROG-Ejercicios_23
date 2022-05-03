@@ -1,6 +1,8 @@
 
     <?php
 
+
+
     class Alumno{
         public $nombre;
         public $apellidos;
@@ -12,7 +14,7 @@
             $this->apellidos=$apellidos;
             $this->edad=$edad;
             $this->nota=$nota;
-            $this->resultado="";
+            
 
         } 
 
@@ -31,20 +33,24 @@
     }
 
     $alvaro=new Alumno($_POST["nombre"],$_POST["apellidos"],$_POST["edad"],$_POST["nota"]);
-    
-    if ($alvaro){
-        $alvaro->resultado="OK";
-    } else{
-        $alvaro->resultado="ERROR";
-    }
-    
-    echo json_encode($alvaro);
+    $alumno1=new Alumno("pablo","solveira","28","5");
+    $alumno2=new Alumno("aida","castro","19","8.5");
+
+    //$alumnnoBuscar=$_POST["nombreBuscar"];
+    $estudiantes=array($alvaro,$alumno1,$alumno2);
+    echo json_encode($estudiantes[0])
+    /*for ($i=0; $i <count($estudiantes) ; $i++) { 
+        if ($estudiantes[$i]->nombre==$alumnnoBuscar){
+            echo json_encode($estudiantes[$i]);
+        }
+    }*/
+
     
     
 
-    /*$estudiantes=array($alvaro,0,0);
-    $estudiantes[0]->mostrar();*/
     
+    
+    //echo json_encode($estudiantes)
 
     ?>
 
